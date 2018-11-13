@@ -11,7 +11,7 @@ function installHandler(event) {
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
                 'index.html',
-                'AllertaStencil-Regular.ttf'
+                'webfont-serif.woff'
             ]);
         })
     );

@@ -18,8 +18,7 @@ navigator.serviceWorker.getRegistration()
   if (!registration || !navigator.serviceWorker.controller) {
     navigator.serviceWorker.register(
     './service-worker.js').then(function() {
-        console.log('Service worker registered, 
-        reloading the page');
+        console.log('Service worker registered, reloading the page');
         window.location.reload();
     });
   } else {

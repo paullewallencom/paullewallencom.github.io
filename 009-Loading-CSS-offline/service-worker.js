@@ -1,5 +1,3 @@
-'use strict';
-
 var version = 1;
 var cacheName = 'static-' + version;
 
@@ -11,14 +9,14 @@ function installHandler(event) {
         caches.open(cacheName).then(function(cache) {
             return cache.addAll([
               'index.html',
-              'packt-logo.png'
+              'style-2.css'
             ]);
         })
     );
 }
 
-event.respondWith(
-  fetch(event.request).catch(function() {
-    return caches.match(event.request);
-  })
-);
+function fetchHandler(event) {
+  if (/index/.test(event.request.url) || /style-2/.test(event.request.url)) {
+    event.respondWith(caches.match(event.request));
+  }
+}
